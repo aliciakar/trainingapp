@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Dokumentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        td {
+            border: 1px solid #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Endpoint</th>
+            <th>Metod</th>
+            <th>Beskrivning</th>
+            <th>Inparametrar</th>
+            <th>Utparametrar</th>
+        </tr>
+        <tr>
+            <td>/activity/</td>
+            <td>GET</td>
+            <td>Hämtar alla aktiviteter</td>
+            <td>None</td>
+            <td>
+                <strong>200 OK:</strong>
+                <ul>
+                    <li>id (int)</li>
+                    <li>user (int)</li>
+                    <li>name (string)</li>
+                    <li>has_time (bool)</li>
+                    <li>has_distance (bool)</li>
+                    <li>distance_unit (string)</li>
+                </ul>
+                <strong>Errors:</strong> None
+            </td>
+        </tr>
+        <tr>
+            <td>/activity/</td>
+            <td>POST</td>
+            <td>Sparar en ny aktivitet</td>
+            <td>user (int), name (string), has_time (bool), has_distance (bool), distance_unit (string)</td>
+            <td>
+                <strong>200 OK:</strong>
+                <ul>
+                    <li>id (int)</li>
+                    <li>user (int)</li>
+                    <li>name (string)</li>
+                    <li>has_time (bool)</li>
+                    <li>has_distance (bool)</li>
+                    <li>distance_unit (string)</li>
+                </ul>
+                <strong>status: 400</strong> - error [(string)]
+            </td>
+        </tr>
+        <tr>
+            <td>/activity/{id}</td>
+            <td>GET</td>
+            <td>Hämtar enskild aktivitet</td>
+            <td>id (int)</td>
+            <td>
+                <strong>200 OK:</strong>
+                <ul>
+                    <li>id (int)</li>
+                    <li>user (int)</li>
+                    <li>name (string)</li>
+                    <li>has_time (bool)</li>
+                    <li>has_distance (bool)</li>
+                    <li>distance_unit (string)</li>
+                </ul>
+                <strong>status: 400</strong> - error(string)]
+            </td>
+        </tr>
+        <tr>
+            <td>/activity/{id}</td>
+            <td>PUT</td>
+            <td>Uppdaterar en aktivitet</td>
+            <td>id (int), user (int), name (string), has_time (bool), has_distance (bool), distance_unit (string)</td>
+            <td>
+                <strong>200 OK:</strong>
+                <ul>
+                    <li>id (int)</li>
+                    <li>user (int)</li>
+                    <li>name (string)</li>
+                    <li>has_time (bool)</li>
+                    <li>has_distance (bool)</li>
+                    <li>distance_unit (string)</li>
+                </ul>
+                <strong>status: 400</strong> - error [(string)]<br>
+            </td>
+        </tr>
+        <tr>
+            <td>/activity/{id}</td>
+            <td>DELETE</td>
+            <td>Raderar en aktivitet</td>
+            <td>id (int)</td>
+            <td>
+                <strong>200 OK:</strong>
+                <ul>
+                    <li>None</li>
+                </ul>
+                <strong>status: 400</strong> - error (string)]
+            </td>
+        </tr>
+        <tr>
+            <td>/workout/</td>
+            <td>GET</td>
+            <td>Hämtar workouts</td>
+            <td>None</td>
+            <td>
+                <strong>200 OK:</strong>
+                <ul>
+                    <li>id (int)</li>
+                    <li>user (int)</li>
+                    <li>activity (int)</li>
+                    <li>date (date)</li>
+                    <li>time (duration)</li>
+                    <li>distance (decimal)</li>
+                    <li>description (string)</li>
+                    <li>rpe (int)</li>
+                </ul>
+                <strong>Errors:</strong> None
+            </td>
+        </tr>
+        <tr>
+            <td>/workout/</td>
+            <td>POST</td>
+            <td>Sparar en ny workout</td>
+            <td>user (int), activity (int), date (date), time (duration), distance (decimal), description (string), rpe (int)</td>
+            <td>
+                <strong>200 OK:</strong>
+                <ul>
+                    <li>id (int)</li>
+                    <li>user (int)</li>
+                    <li>activity (int)</li>
+                    <li>date (date)</li>
+                    <li>time (duration)</li>
+                    <li>distance (decimal)</li>
+                    <li>description (string)</li>
+                    <li>rpe (int)</li>
+                </ul>
+                <strong>status: 400</strong> - error [(string)]
+            </td>
+        </tr>
+        <tr>
+            <td>/workout/{id}</td>
+            <td>GET</td>
+            <td>Hämtar enskild workout</td>
+            <td>id (int)</td>
+            <td>
+                <strong>200 OK:</strong>
+                <ul>
+                    <li>id (int)</li>
+                    <li>user (int)</li>
+                    <li>activity (int)</li>
+                    <li>date (date)</li>
+                    <li>time (duration)</li>
+                    <li>distance (decimal)</li>
+                    <li>description (string)</li>
+                    <li>rpe (int)</li>
+                </ul>
+                <strong>status: 40</strong> - error(string)]
+            </td>
+        </tr>
+        <tr>
+            <td>/workout/{id}</td>
+            <td>PUT</td>
+            <td>Uppdaterar en workout</td>
+            <td>id (int), user (int), activity (int), date (date), time (duration), distance (decimal), description (string), rpe (int)</td>
+            <td>
+                <strong>200 OK:</strong>
+                <ul>
+                    <li>id (int)</li>
+                    <li>user (int)</li>
+                    <li>activity (int)</li>
+                    <li>date (date)</li>
+                    <li>time (duration)</li>
+                    <li>distance (decimal)</li>
+                    <li>description (string)</li>
+                    <li>rpe (int)</li>
+                </ul>
+                <strong>status: 400</strong> - error [(string)]<br>
+            </td>
+        </tr>
+        <tr>
+            <td>/workout/{id}</td>
+            <td>DELETE</td>
+            <td>Raderar en workout</td>
+            <td>id (int)</td>
+            <td>
+                <strong>200 OK:</strong>
+                <ul>
+                    <li>None</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
